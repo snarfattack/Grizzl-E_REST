@@ -1,0 +1,29 @@
+grizzle_charge_enable:
+  url: "http://<ipaddress>/pageEvent"
+  method: post
+  content_type: "application/x-www-form-urlencoded"
+  payload: "evseEnabled=0"
+
+grizzle_charge_disable:
+  url: "http://<ipaddress>/pageEvent"
+  method: post
+  content_type: "application/x-www-form-urlencoded"
+  payload: "evseEnabled=1"
+
+grizzle_ocpp_enable:
+  url: "http://<ipaddress>/ocppEvent"
+  method: post
+  content_type: "application/x-www-form-urlencoded"
+  payload: "ocppEnabled=1"
+
+grizzle_ocpp_disable:
+  url: "http://<ipaddress>/ocppEvent"
+  method: post
+  content_type: "application/x-www-form-urlencoded"
+  payload: "ocppEnabled=0"
+
+grizzle_charge_rate:
+  url: "http://<ipaddress>/pageEvent"
+  method: post
+  content_type: "application/x-www-form-urlencoded"
+  payload: "currentSet={{current}}"

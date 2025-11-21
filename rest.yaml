@@ -1,0 +1,268 @@
+#Grizzl-E local status data
+- resource: http://<ipaddress>/main
+  method: POST
+  scan_interval: 1
+  sensor:
+    - name: grizzl-e.verFWMain
+      value_template: "{{ value_json.verFWMain }}"
+    - name: grizzl-e.verFWWifi
+      value_template: "{{ value_json.verFWWifi }}"
+    - name: grizzl-e.serialNumCPU
+      value_template: "{{ value_json.serialNumCPU }}"
+    - name: grizzl-e.serialNum
+      value_template: "{{ value_json.serialNum }}"
+    - name: grizzl-e.stationId
+      value_template: "{{ value_json.stationId }}"
+    - name: grizzl-e.fwCRC32
+      value_template: "{{ value_json.fwCRC32 }}"
+    - name: grizzl-e.broadcastMode
+      value_template: "{{ value_json.broadcastMode }}"
+    - name: grizzl-e.switchState
+      value_template: "{{ value_json.switchState }}"
+    - name: grizzl-e.verFWStatus
+      value_template: "{{ value_json.verFWStatus }}"
+    - name: grizzl-e.pilot
+      value_template: "{{ value_json.pilot }}"
+    - name: grizzl-e.state
+      value_template: "{{ value_json.state }}"
+    - name: grizzl-e.subState
+      value_template: "{{ value_json.subState }}"
+    - name: grizzl-e.currentSet
+      value_template: "{{ value_json.currentSet }}"
+      device_class: current
+      unit_of_measurement: "A"
+      state_class: measurement
+    - name: grizzl-e.curDesign
+      value_template: "{{ value_json.curDesign }}"
+      device_class: current
+      unit_of_measurement: "A"
+      state_class: measurement
+    - name: grizzl-e.minCurrent
+      value_template: "{{ value_json.minCurrent }}"
+      device_class: current
+      unit_of_measurement: "A"
+      state_class: measurement
+    - name: grizzl-e.minVoltage
+      value_template: "{{ value_json.minVoltage }}"
+      device_class: voltage
+      unit_of_measurement: "V"
+      state_class: measurement
+    - name: grizzl-e.gridRange
+      value_template: "{{ value_json.gridRange }}"
+    - name: grizzl-e.typeEvse
+      value_template: "{{ value_json.typeEvse }}"
+    - name: grizzl-e.typeRelay
+      value_template: "{{ value_json.typeRelay }}"
+    - name: grizzl-e.aiModecurrent
+      value_template: "{{ value_json.aiModecurrent }}"
+    - name: grizzl-e.aiStatus
+      value_template: "{{ value_json.aiStatus }}"
+    - name: grizzl-e.aiVoltage
+      value_template: "{{ value_json.aiVoltage }}"
+      device_class: voltage
+      unit_of_measurement: "V"
+      state_class: measurement
+    - name: grizzl-e.aiVoltageStart
+      value_template: "{{ value_json.aiVoltageStart }}"
+      device_class: voltage
+      unit_of_measurement: "V"
+      state_class: measurement
+    - name: grizzl-e.aiVoltageDrop
+      value_template: "{{ value_json.aiVoltageDrop }}"
+      device_class: voltage
+      unit_of_measurement: "V"
+      state_class: measurement
+    - name: grizzl-e.aiPowerDrop
+      value_template: "{{ value_json.aiPowerDrop }}"
+    - name: grizzl-e.SNflag
+      value_template: "{{ value_json.SNflag }}"
+    - name: grizzl-e.ground
+      value_template: "{{ value_json.ground }}"
+    - name: grizzl-e.groundCtrl
+      value_template: "{{ value_json.groundCtrl }}"
+    - name: grizzl-e.tarif
+      value_template: "{{ value_json.tarif }}"
+    - name: grizzl-e.activeTarif
+      value_template: "{{ value_json.activeTarif }}"
+    - name: grizzl-e.tarifAValue
+      value_template: "{{ value_json.tarifAValue }}"
+    - name: grizzl-e.tarifBValue
+      value_template: "{{ value_json.tarifBValue }}"
+    - name: grizzl-e.tarifAStart
+      value_template: "{{ value_json.tarifAStart }}"
+    - name: grizzl-e.tarifAStop
+      value_template: "{{ value_json.tarifAStop }}"
+    - name: grizzl-e.tarifBStop
+      value_template: "{{ value_json.tarifBStop }}"
+    - name: grizzl-e.timerType
+      value_template: "{{ value_json.timerType }}"
+    - name: grizzl-e.timeZone
+      value_template: "{{ value_json.timeZone }}"
+    - name: grizzl-e.systemTime
+      value_template: "{{ value_json.systemTime }}"
+    - name: grizzl-e.timeMsg
+      value_template: "{{ value_json.timeMsg }}"
+    - name: grizzl-e.timeLimitS
+      value_template: "{{ value_json.timeLimitS }}"
+    - name: grizzl-e.energyLimitS
+      value_template: "{{ value_json.energyLimitS }}"
+      device_class: energy
+      unit_of_measurement: "kWh"
+      state_class: total
+    - name: grizzl-e.moneyLimitS
+      value_template: "{{ value_json.moneyLimitS }}"
+    - name: grizzl-e.delayedLimit
+      value_template: "{{ value_json.delayedLimit }}"
+    - name: grizzl-e.timeLimit
+      value_template: "{{ value_json.timeLimit }}"
+    - name: grizzl-e.energyLimit
+      value_template: "{{ value_json.energyLimit }}"
+      device_class: energy
+      unit_of_measurement: "kWh"
+      state_class: total
+    - name: grizzl-e.moneyLimit
+      value_template: "{{ value_json.moneyLimit }}"
+    - name: grizzl-e.sh1Start
+      value_template: "{{ value_json.sh1Start }}"
+    - name: grizzl-e.sh1Stop
+      value_template: "{{ value_json.sh1Stop }}"
+    - name: grizzl-e.sh1CurrentValue
+      value_template: "{{ value_json.sh1CurrentValue }}"
+      device_class: current
+      unit_of_measurement: "A"
+      state_class: measurement
+    - name: grizzl-e.sh1EnergyValue
+      value_template: "{{ value_json.sh1EnergyValue }}"
+      device_class: energy
+      unit_of_measurement: "kWh"
+      state_class: total
+    - name: grizzl-e.sh2Start
+      value_template: "{{ value_json.sh2Start }}"
+    - name: grizzl-e.sh2Stop
+      value_template: "{{ value_json.sh2Stop }}"
+    - name: grizzl-e.sh2CurrentValue
+      value_template: "{{ value_json.sh2CurrentValue }}"
+      device_class: current
+      unit_of_measurement: "A"
+      state_class: measurement
+    - name: grizzl-e.sh2EnergyValue
+      value_template: "{{ value_json.sh2EnergyValue }}"
+      device_class: energy
+      unit_of_measurement: "kWh"
+      state_class: total
+    - name: grizzl-e.totalEnergy
+      value_template: "{{ value_json.totalEnergy }}"
+      device_class: energy
+      unit_of_measurement: "kWh"
+      state_class: total_increasing
+    - name: grizzl-e.sessionTime
+      value_template: "{{ value_json.sessionTime }}"
+    - name: grizzl-e.sessionEnergy
+      value_template: "{{ value_json.sessionEnergy }}"
+      device_class: energy
+      unit_of_measurement: "kWh"
+      state_class: total
+    - name: grizzl-e.sessionMoney
+      value_template: "{{ value_json.sessionMoney }}"
+    - name: grizzl-e.IEM1
+      value_template: "{{ value_json.IEM1 }}"
+    - name: grizzl-e.IEM2
+      value_template: "{{ value_json.IEM2 }}"
+    - name: grizzl-e.IEM1_money
+      value_template: "{{ value_json.IEM1_money }}"
+    - name: grizzl-e.IEM2_money
+      value_template: "{{ value_json.IEM2_money }}"
+    - name: grizzl-e.curMeas1
+      value_template: "{{ value_json.curMeas1 }}"
+      device_class: current
+      unit_of_measurement: "A"
+      state_class: measurement
+    - name: grizzl-e.curMeas2
+      value_template: "{{ value_json.curMeas2 }}"
+      device_class: current
+      unit_of_measurement: "A"
+      state_class: measurement
+    - name: grizzl-e.curMeas3
+      value_template: "{{ value_json.curMeas3 }}"
+      device_class: current
+      unit_of_measurement: "A"
+      state_class: measurement
+    - name: grizzl-e.voltMeas1
+      value_template: "{{ value_json.voltMeas1 }}"
+      device_class: voltage
+      unit_of_measurement: "V"
+      state_class: measurement
+    - name: grizzl-e.voltMeas2
+      value_template: "{{ value_json.voltMeas2 }}"
+      device_class: voltage
+      unit_of_measurement: "V"
+      state_class: measurement
+    - name: grizzl-e.voltMeas3
+      value_template: "{{ value_json.voltMeas3 }}"
+      device_class: voltage
+      unit_of_measurement: "V"
+      state_class: measurement
+    - name: grizzl-e.powerMeas
+      value_template: "{{ value_json.powerMeas }}"
+      device_class: power
+      unit_of_measurement: "kW"
+      state_class: measurement
+    - name: grizzl-e.temperature1
+      value_template: "{{ value_json.temperature1 }}"
+    - name: grizzl-e.temperature2
+      value_template: "{{ value_json.temperature2 }}"
+    - name: grizzl-e.leakValue
+      value_template: "{{ value_json.leakValue }}"
+    - name: grizzl-e.leakValueH
+      value_template: "{{ value_json.leakValueH }}"
+    - name: grizzl-e.vBat
+      value_template: "{{ value_json.vBat }}"
+    - name: grizzl-e.adapter
+      value_template: "{{ value_json.adapter }}"
+    - name: grizzl-e.lang
+      value_template: "{{ value_json.lang }}"
+    - name: grizzl-e.ocppconnected
+      value_template: "{{ value_json.ocppconnected }}"
+    - name: grizzl-e.ocppVendor
+      value_template: "{{ value_json.ocppVendor }}"
+    - name: grizzl-e.STA_IP_Addres
+      value_template: "{{ value_json.STA_IP_Addres }}"
+    - name: grizzl-e.RSSI
+      value_template: "{{ value_json.RSSI }}"
+    - name: grizzl-e.model
+      value_template: "{{ value_json.model }}"
+  binary_sensor:
+    - name: grizzl-e.logReady
+      value_template: "{{ value_json.logReady }}"
+    - name: grizzl-e.ocppEnabled
+      value_template: "{{ value_json.ocppEnabled }}"
+    - name: grizzl-e.sessionStarted
+      value_template: "{{ value_json.sessionStarted }}"
+    - name: grizzl-e.tarifAEnable
+      value_template: "{{ value_json.tarifAEnable }}"
+    - name: grizzl-e.tarifBEnable
+      value_template: "{{ value_json.tarifBEnable }}"
+    - name: grizzl-e.evseEnabled
+      value_template: "{{ value_json.evseEnabled }}"
+    - name: grizzl-e.sh1Enabled
+      value_template: "{{ value_json.sh1Enabled }}"
+    - name: grizzl-e.sh1CurrentEnable
+      value_template: "{{ value_json.sh1CurrentEnable }}"
+    - name: grizzl-e.sh1EnergyEnable
+      value_template: "{{ value_json.sh1EnergyEnable }}"
+    - name: grizzl-e.sh2Enabled
+      value_template: "{{ value_json.sh2Enabled }}"
+    - name: grizzl-e.sh2CurrentEnable
+      value_template: "{{ value_json.sh2CurrentEnable }}"
+    - name: grizzl-e.sh2EnergyEnable
+      value_template: "{{ value_json.sh2EnergyEnable }}"
+    - name: grizzl-e.ocppOfflineAva
+      value_template: "{{ value_json.ocppOfflineAva }}"
+    - name: grizzl-e.scanComplete
+      value_template: "{{ value_json.scanComplete }}"
+    - name: grizzl-e.suspendErrors
+      value_template: "{{ value_json.suspendErrors }}"
+    - name: grizzl-e.suspendLimits
+      value_template: "{{ value_json.suspendLimits }}"
+    - name: grizzl-e.oneCharge
+      value_template: "{{ value_json.oneCharge }}"
