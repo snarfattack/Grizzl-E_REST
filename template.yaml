@@ -1,0 +1,17 @@
+- switch:
+    - turn_on:
+        - action: rest_command.grizzle_ocpp_enable
+      turn_off:
+        - action: rest_command.grizzle_ocpp_disable
+      default_entity_id: switch.grizzle_ocpp
+      state: "{{ is_state('binary_sensor.grizzl_e_ocppenabled', 'on') }}"
+      name: grizzle_ocpp
+
+- switch:
+    - turn_on:
+        - action: rest_command.grizzle_charge_enable
+      turn_off:
+        - action: rest_command.grizzle_charge_disable
+      default_entity_id: switch.grizzle_charge
+      state: "{{ is_state('binary_sensor.grizzl_e_evseenabled', 'off') }}"
+      name: grizzle_charge
