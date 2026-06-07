@@ -1,3 +1,7 @@
+# Project Moved to Codeberg
+
+See: https://codeberg.org/nomad64/Grizzl-E_REST
+
 # Grizzl-E Ultimate Home Assistant REST Integration
 
 This project provides a comprehensive local integration for the Grizzl-E Ultimate 48A EV charger with Home Assistant. It bypasses the manufacturer's subscription-based OCPP paywall by utilizing the charger's local REST API for monitoring and control.
