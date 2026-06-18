@@ -1,0 +1,51 @@
+# Grizzl-E REST Commands
+# These commands allow for local control of the Grizzl-E Ultimate charger.
+# Ensure you define the corresponding URLs in your secrets.yaml.
+
+# Toggle charging status (Enabled/Disabled)
+grizzl_e_charge_enable:
+  url: !secret grizzl_e_page_event_url
+  method: post
+  content_type: "application/x-www-form-urlencoded"
+  # authentication: basic
+  # username: !secret grizzl_e_username
+  # password: !secret grizzl_e_password
+  payload: "evseEnabled=0"
+
+grizzl_e_charge_disable:
+  url: !secret grizzl_e_page_event_url
+  method: post
+  content_type: "application/x-www-form-urlencoded"
+  # authentication: basic
+  # username: !secret grizzl_e_username
+  # password: !secret grizzl_e_password
+  payload: "evseEnabled=1"
+
+# Toggle OCPP integration (Enabled/Disabled)
+grizzl_e_ocpp_enable:
+  url: !secret grizzl_e_ocpp_event_url
+  method: post
+  content_type: "application/x-www-form-urlencoded"
+  # authentication: basic
+  # username: !secret grizzl_e_username
+  # password: !secret grizzl_e_password
+  payload: "ocppEnabled=1"
+
+grizzl_e_ocpp_disable:
+  url: !secret grizzl_e_ocpp_event_url
+  method: post
+  content_type: "application/x-www-form-urlencoded"
+  # authentication: basic
+  # username: !secret grizzl_e_username
+  # password: !secret grizzl_e_password
+  payload: "ocppEnabled=0"
+
+# Set the maximum charging current
+grizzl_e_set_charge_rate:
+  url: !secret grizzl_e_page_event_url
+  method: post
+  content_type: "application/x-www-form-urlencoded"
+  # authentication: basic
+  # username: !secret grizzl_e_username
+  # password: !secret grizzl_e_password
+  payload: "currentSet={{ current | int }}"

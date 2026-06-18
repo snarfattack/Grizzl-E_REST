@@ -1,0 +1,39 @@
+# Grizzl-E Example Automations
+# These examples demonstrate how to use the Grizzl-E integration for common tasks.
+
+# 1. Notification on Charging State Change
+# This automation sends a notification to your mobile device when the charging status changes.
+- alias: "Grizzl-E: Charging State Notification"
+  description: "Notify when charging starts or stops"
+  triggers:
+    - platform: state
+      entity_id: binary_sensor.grizzl_e_session_started
+  actions:
+    - action: notify.mobile_app_your_device # Replace with your actual notification service
+      data:
+        title: "Grizzl-E Charger"
+        message: >
+          Charging has {{ 'started' if is_state('binary_sensor.grizzl_e_session_started', 'on') else 'stopped' }}.
+          Current state: {{ states('sensor.grizzl_e_state') }}
+
+# 2. Automatic Charging based on Time of Use
+# This automation enables charging during off-peak hours (e.g., midnight to 6 AM).
+- alias: "Grizzl-E: Off-Peak Charging"
+  description: "Enable charging during off-peak hours"
+  triggers:
+    - platform: time
+      at: "00:00:00"
+  actions:
+    - action: switch.turn_on
+      target:
+        entity_id: switch.grizzl_e_charge
+
+- alias: "Grizzl-E: End Off-Peak Charging"
+  description: "Disable charging when off-peak ends"
+  triggers:
+    - platform: time
+      at: "06:00:00"
+  actions:
+    - action: switch.turn_off
+      target:
+        entity_id: switch.grizzl_e_charge

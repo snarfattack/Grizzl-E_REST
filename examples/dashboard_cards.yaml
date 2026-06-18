@@ -1,0 +1,44 @@
+# Grizzl-E Home Assistant Dashboard (Lovelace) Examples
+# These examples provide YAML for various dashboard cards to monitor and control your charger.
+
+# 1. Main Status Card (Entities Card)
+# A simple overview of the most important metrics and controls.
+type: entities
+title: Grizzl-E Charger
+entities:
+  - entity: switch.grizzl_e_charge
+    name: Charging Enable
+  - entity: select.grizzl_e_charge_limit
+    name: Set Charge Limit
+  - entity: sensor.grizzl_e_state
+    name: Status
+  - entity: sensor.grizzl_e_total_energy
+    name: Total Energy Delivered
+  - entity: binary_sensor.grizzl_e_session_started
+    name: Session Active
+
+# 2. Real-time Metrics (Glance Card)
+# Quick view of current electrical parameters.
+type: glance
+title: Electrical Metrics
+entities:
+  - entity: sensor.grizzl_e_ai_voltage
+    name: Voltage
+  - entity: sensor.grizzl_e_cur_meas1
+    name: Current (L1)
+  - entity: sensor.grizzl_e_power_meas
+    name: Power
+
+# 3. Charger Health (Entities Card)
+# Monitoring internal parameters and connectivity.
+type: entities
+title: Charger Diagnostics
+entities:
+  - entity: sensor.grizzl_e_fw_main
+    name: Firmware Version
+  - entity: sensor.grizzl_e_rssi
+    name: WiFi Signal Strength
+  - entity: sensor.grizzl_e_temperature1
+    name: Internal Temp 1
+  - entity: binary_sensor.grizzl_e_ocpp_enabled
+    name: OCPP Active

@@ -1,0 +1,36 @@
+# Grizzl-E Template Entities
+# These template entities provide a more user-friendly interface for controlling the charger.
+
+- switch:
+    # Switch to enable/disable OCPP integration
+    - name: grizzl_e_ocpp
+      unique_id: grizzl_e_ocpp
+      state: "{{ is_state('binary_sensor.grizzl_e_ocpp_enabled', 'on') }}"
+      turn_on:
+        - action: rest_command.grizzl_e_ocpp_enable
+      turn_off:
+        - action: rest_command.grizzl_e_ocpp_disable
+
+    # Switch to enable/disable charging (EVSE)
+    - name: grizzl_e_charge
+      unique_id: grizzl_e_charge
+      # Note: evse_enabled=0 means charging is enabled in the API, so we map 'off' to 'on'
+      state: "{{ is_state('binary_sensor.grizzl_e_evse_enabled', 'off') }}"
+      turn_on:
+        - action: rest_command.grizzl_e_charge_enable
+      turn_off:
+        - action: rest_command.grizzl_e_charge_disable
+
+- select:
+    # Select entity to set common charging current limits
+    - name: grizzl_e_charge_limit
+      unique_id: grizzl_e_charge_limit
+      icon: mdi:ampersand
+      state: >
+        {% set current = states('sensor.grizzl_e_current_set') %}
+        {{ current | int ~ ' A' if current | is_number else None }}
+      options: "{{ ['6 A', '12 A', '16 A', '24 A', '32 A', '40 A', '48 A'] }}"
+      select_option:
+        - action: rest_command.grizzl_e_set_charge_rate
+          data:
+            current: "{{ option.split(' ')[0] | int }}"
